@@ -1,19 +1,29 @@
 <?php
 
+
 include("connection.php");
 
 try{
 
-   $insertquery = "INSERT INTO products (prod_name, prod_price, prod_desc)
-VALUES ('$prodname', '$prodprice', '$proddesc')";
 
    if(isset($_POST["prodBtn"])) {
-
     $prodname = $_POST["prodName"];
     $prodprice = $_POST["prodPrice"];
     $proddesc = $_POST["prodDesc"];
-}
 
+      $insertquery = "INSERT INTO `prodect`(`prodcet_price`, `prodcet_name`, `prodcet_quntity`) VALUES  ('$prodprice', '$prodname', '$proddesc')";
+
+
+
+    $result = mysqli_query($db, $insertquery);
+
+    if($result){
+        echo "prodcut inserted successfully!";
+    }
+    else{
+        echo "prodcut is not inserted";
+    }
+}
 
 
 
@@ -23,8 +33,6 @@ VALUES ('$prodname', '$prodprice', '$proddesc')";
 
 
     }
-
-
 
 
 ?>
