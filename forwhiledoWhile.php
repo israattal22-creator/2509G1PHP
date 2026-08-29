@@ -1,49 +1,47 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<?php
 
-<h1 class="text-center">For Loop</h1>
+$numbers = [32,43,78,44,26,85,23,76,87];
 
-<div class="container">
+$i = 0;
 
-<?php 
-$i=0;
+while($i < count($numbers)) {
+    echo "$numbers[$i]<br>";
 
-    for(; $i<=10; $i++){
-        echo "{$i} <br>";
-    }
+    $i++;
+}
 
+if(isset($_POST["btn"])) {
+    $guessnumbers = $_POST["guessnumbers"];
 
-?>
-
-<h1 class="text-center">While Loop</h1>
-
-<?php 
-
-    $i=1;
-
-    while( $i <= 10 ){
-        echo "{$i} <br>";
+    $i = 0;
+    
+    do {
+        if ($guessnumbers == $numbers[$i]) {
+            echo "you guess the right number!";
+            return;
+        } else {
+            echo "you guess the wrong number!";
+            return;
+        }
+        
         $i++;
-    }
-
-
+    } while ($i < count($numbers));
+    
+}
 ?>
 
 
-<h1 class="text-center">DO While Loop</h1>
-
-<?php 
-
-    $i=10;
-
-    do
-    {
-        echo "{$i} <br>";
-        $i++;
-    }
-    while( $i <= 20 );
-
-
-?>
-
-
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        <input type="text" name="guessnumbers">
+        <button type="submit" name="btn">guess</button>
+    </form>
+</body>
+</html>
