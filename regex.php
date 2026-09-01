@@ -13,13 +13,13 @@ if(isset($_POST["btn"])) {
         echo "not a valid email <br>";
     }
 
-}
-if(!preg_match($passwordregex,$password)){
-    echo "not a valid password <br>";
-}
-
-if(preg_match($phonenumber,$phonenumber)){
+    if(!preg_match($passwordregex,$password)){
+        echo "not a valid password <br>";
+    }
     
+    if(!preg_match($phonenumber,$phonenumber)){
+        echo "not a valid phone number <br>";
+    }
 }
 
 
@@ -49,11 +49,11 @@ if(preg_match($phonenumber,$phonenumber)){
   </head>
   <body>
     <h1 class="text-center">validation Form</h1>
-    <div class="continer">
+    <div class="container">
         <form method="post">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email </label>
-    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" >
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
